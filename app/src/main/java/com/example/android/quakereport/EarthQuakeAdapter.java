@@ -14,14 +14,14 @@ import java.util.ArrayList;
  * Created by uc on 10/1/16.
  */
 
-public class EarthQuakeAdapter extends ArrayAdapter<EarthQuake> {
+public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
 
-    public EarthQuakeAdapter(Context context, int resource) {
+    public EarthquakeAdapter(Context context, int resource) {
         super(context, resource);
     }
 
-    public EarthQuakeAdapter(Context context, int resource, ArrayList<EarthQuake> objects) {
+    public EarthquakeAdapter(Context context, int resource, ArrayList<Earthquake> objects) {
         super(context, resource, objects);
     }
 
@@ -34,8 +34,8 @@ public class EarthQuakeAdapter extends ArrayAdapter<EarthQuake> {
             earthQuakeView = LayoutInflater.from(getContext()).inflate(
                     R.layout.earth_quake_item,parent,false);
         }
-        // Get the {@link EarthQuake} object located at this position in the list
-        EarthQuake currentEearthQuake = getItem(position);
+        // Get the {@link Earthquake} object located at this position in the list
+        Earthquake currentEearthQuake = getItem(position);
         // Find the TextView in the earth_quake_item.xml layout with the ID textView_mag
         TextView mag = (TextView) earthQuakeView.findViewById(R.id.textView_mag);
         mag.setText(String.valueOf(currentEearthQuake.getmMag()));

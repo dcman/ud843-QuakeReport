@@ -9,15 +9,15 @@ import java.util.Date;
  * Created by uc on 10/1/16.
  */
 
-public class EarthQuake {
-    public static final String TAG = EarthQuake.class.getName();
+public class Earthquake {
+    public static final String TAG = Earthquake.class.getName();
 
     private String mLocation, mDateFormated;
     private Date mDate;
     private double mMag;
 
 
-    public EarthQuake(String mLocation, Date mDate, double mMag) {
+    public Earthquake(String mLocation, Date mDate, double mMag) {
         this.mLocation = mLocation;
         this.mDate = mDate;
         this.mMag = mMag;
@@ -51,7 +51,7 @@ public class EarthQuake {
 
     @Override
     public String toString() {
-        return "EarthQuake{" +
+        return "Earthquake{" +
                 "mLocation='" + mLocation + '\'' +
                 ", mDate=" + mDate +
                 ", mMag=" + mMag +
