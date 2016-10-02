@@ -21,7 +21,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class EarthquakeActivity extends AppCompatActivity {
 
@@ -32,17 +31,8 @@ public class EarthquakeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.earthquake_activity);
 
-        QueryUtils q  = new QueryUtils();
         // Create a fake list of earthquake locations.
-        ArrayList<Earthquake> earthquakes = new ArrayList<Earthquake>();
-
-        earthquakes.add(new Earthquake("San Francisco", new Date(),2.5));
-        earthquakes.add(new Earthquake("London", new Date(), 0.2));
-        earthquakes.add(new Earthquake("Tokyo", new Date(), 1.5));
-        earthquakes.add(new Earthquake("Mexico City", new Date(), 8.5));
-        earthquakes.add(new Earthquake("Moscow", new Date(), 1.52));
-        earthquakes.add(new Earthquake("Rio de Janeiro", new Date(), 6.2));
-        earthquakes.add(new Earthquake("Paris", new Date(), 1.1));
+        ArrayList<Earthquake> earthquakes = QueryUtils.extractEarthquakes();
 
         // Find a reference to the {@link ListView} in the layout
         ListView earthquakeListView = (ListView) findViewById(R.id.list);
