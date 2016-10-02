@@ -10,7 +10,7 @@ import java.util.Date;
 public class Earthquake {
     public static final String TAG = Earthquake.class.getName();
 
-    private String mLocation, mDateFormatted;
+    private String mLocation, mDateFormatted, mTimeFormatted;
     private Date mDate;
     private double mMag;
 
@@ -24,11 +24,15 @@ public class Earthquake {
 
     private void formatDate() {
         //Convert current time to String using specified format
+        //yyyy-MM-dd HH:mm:ss a
         String format = "MMM dd, yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format);
         mDateFormatted = simpleDateFormat.format(mDate);
-       // Log.i(TAG, "formatDate: " + mDateFormatted);
-
+        // Log.i(TAG, "formatDate: " + mDateFormatted);
+        format = "hh:mm a";
+        SimpleDateFormat simpleTimeFormat = new SimpleDateFormat(format);
+        mTimeFormatted = simpleTimeFormat.format(mDate);
+        //Log.i(TAG, "formatDate: " + mTimeFormatted);
     }
 
     public double getmMag() {
@@ -45,6 +49,10 @@ public class Earthquake {
 
     public String getmDateFormatted() {
         return mDateFormatted;
+    }
+
+    public String getmTimeFormatted() {
+        return mTimeFormatted;
     }
 
     @Override

@@ -17,11 +17,28 @@
         android:id="@+id/textView_loc"
         android:layout_weight="1"
         tools:text="Location"/>
-    <TextView
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView_date"
-        android:layout_weight="1"
-        tools:text="Date"/>
+        android:id="@+id/date_time_layout"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_date"
+            android:layout_weight="1"
+            tools:text="Date"
+            android:textAlignment="viewEnd"
+            android:layout_gravity="end"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_time"
+            android:layout_weight="1"
+            tools:text="Time"
+            android:textAlignment="textEnd"
+            android:layout_gravity="end"/>
+    </LinearLayout>
 
 </LinearLayout>
