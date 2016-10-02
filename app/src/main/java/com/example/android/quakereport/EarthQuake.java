@@ -29,7 +29,7 @@ public class Earthquake {
         String format = "MMM dd, yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format);
         mDateFormated = simpleDateFormat.format(mDate);
-        Log.i(TAG, "formatDate: " + mDateFormated);
+       // Log.i(TAG, "formatDate: " + mDateFormated);
 
     }
 

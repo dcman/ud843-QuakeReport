@@ -58,13 +58,13 @@ public final class QueryUtils {
 
             for (int i = 0; i < jsonFeaturesArray.length() ; i++) {
                 JSONObject temp = jsonFeaturesArray.getJSONObject(i);
-                Log.i(TAG, "extractEarthquakes: feature " + temp);
+                //Log.i(TAG, "extractEarthquakes: feature " + temp);
                 JSONObject prop = temp.getJSONObject("properties");
-                Log.i(TAG, "extractEarthquakes: properties " + prop);
+                //Log.i(TAG, "extractEarthquakes: properties " + prop);
                 String place = prop.getString("place");
                 int mag = prop.getInt("mag");
                 Date date = new Date(prop.getInt("time"));
-                Log.i(TAG, "extractEarthquakes: " + mag + " " + place + " " + date);
+                //Log.i(TAG, "extractEarthquakes: " + mag + " " + place + " " + date);
                 earthquakes.add(new Earthquake(place, date, mag));
             }
 
@@ -77,6 +77,7 @@ public final class QueryUtils {
         }
 
         // Return the list of earthquakes
+        //Log.i(TAG, "extractEarthquakes: " + earthquakes);
         return earthquakes;
     }
 
