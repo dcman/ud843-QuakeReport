@@ -51,18 +51,22 @@ public final class QueryUtils {
 
             // build up a list of Earthquake objects with the corresponding data.
             JSONObject jsonRootObject = new JSONObject(SAMPLE_JSON_RESPONSE);
-
+            // pullout the features array from rootObject
             JSONArray jsonFeaturesArray = jsonRootObject.getJSONArray("features");
 
             for (int i = 0; i < jsonFeaturesArray.length() ; i++) {
+                // pullout a feature from the FeaturesArray
                 JSONObject temp = jsonFeaturesArray.getJSONObject(i);
                 //Log.i(TAG, "extractEarthquakes: feature " + temp);
+                // pullout a properties object from temp
                 JSONObject prop = temp.getJSONObject("properties");
                 //Log.i(TAG, "extractEarthquakes: properties " + prop);
+                // pull out place, magnitude and date from prop
                 String place = prop.getString("place");
                 int mag = prop.getInt("mag");
                 Date date = new Date(prop.getInt("time"));
                 //Log.i(TAG, "extractEarthquakes: " + mag + " " + place + " " + date);
+                // build new earthquake and add it to earthquakes list
                 earthquakes.add(new Earthquake(place, date, mag));
             }
 
