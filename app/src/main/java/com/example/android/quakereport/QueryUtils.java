@@ -63,7 +63,7 @@ public final class QueryUtils {
                 //Log.i(TAG, "extractEarthquakes: properties " + prop);
                 // pull out place, magnitude and date from prop
                 String place = prop.getString("place");
-                int mag = prop.getInt("mag");
+                double mag = prop.getDouble("mag");
                 Date date = new Date(prop.getInt("time"));
                 //Log.i(TAG, "extractEarthquakes: " + mag + " " + place + " " + date);
                 // build new earthquake and add it to earthquakes list

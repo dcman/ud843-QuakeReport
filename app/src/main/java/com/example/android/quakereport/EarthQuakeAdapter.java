@@ -44,7 +44,7 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         loc.setText(currentEearthQuake.getmLocation());
         // Find the TextView in the earth_quake_item.xml layout with the ID textView_date
         TextView date = (TextView) earthQuakeView.findViewById(R.id.textView_date);
-        date.setText(currentEearthQuake.getmDateFormated());
+        date.setText(currentEearthQuake.getmDateFormatted());
         return earthQuakeView;
     }
 }

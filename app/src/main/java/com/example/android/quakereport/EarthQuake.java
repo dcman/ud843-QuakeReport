@@ -1,7 +1,5 @@
 package com.example.android.quakereport;
 
-import android.util.Log;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -12,7 +10,7 @@ import java.util.Date;
 public class Earthquake {
     public static final String TAG = Earthquake.class.getName();
 
-    private String mLocation, mDateFormated;
+    private String mLocation, mDateFormatted;
     private Date mDate;
     private double mMag;
 
@@ -28,8 +26,8 @@ public class Earthquake {
         //Convert current time to String using specified format
         String format = "MMM dd, yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format);
-        mDateFormated = simpleDateFormat.format(mDate);
-       // Log.i(TAG, "formatDate: " + mDateFormated);
+        mDateFormatted = simpleDateFormat.format(mDate);
+       // Log.i(TAG, "formatDate: " + mDateFormatted);
 
     }
 
@@ -45,8 +43,8 @@ public class Earthquake {
         return mDate;
     }
 
-    public String getmDateFormated() {
-        return mDateFormated;
+    public String getmDateFormatted() {
+        return mDateFormatted;
     }
 
     @Override
