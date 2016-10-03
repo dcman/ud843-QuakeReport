@@ -9,29 +9,36 @@
         android:id="@+id/mag_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="0">
         <TextView
             android:id="@+id/textView_mag"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="0.0"/>
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/magnitude_circle"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            tools:text="8.9"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/location_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginLeft="16dp">
         <TextView
             android:id="@+id/textView_loc_offset"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Location"/>
+            tools:text="Location offset"/>
         <TextView
             android:id="@+id/textView_loc_primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Location"/>
+            tools:text="Location primary"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/date_time_layout"
