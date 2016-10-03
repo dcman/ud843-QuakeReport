@@ -43,10 +43,6 @@ public class Earthquake {
         return mLocation;
     }
 
-    public Date getmDate(){
-        return mDate;
-    }
-
     public String getmDateFormatted() {
         return mDateFormatted;
     }
