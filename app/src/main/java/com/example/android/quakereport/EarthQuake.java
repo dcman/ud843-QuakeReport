@@ -1,5 +1,6 @@
 package com.example.android.quakereport;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -10,7 +11,7 @@ import java.util.Date;
 public class Earthquake {
     public static final String TAG = Earthquake.class.getName();
 
-    private String mLocation, mDateFormatted, mTimeFormatted;
+    private String mLocation, mDateFormatted, mTimeFormatted, mMagFormatted;
     private Date mDate;
     private double mMag;
 
@@ -20,6 +21,12 @@ public class Earthquake {
         this.mDate = mDate;
         this.mMag = mMag;
         formatDate();
+        formatMag();
+    }
+
+    private void formatMag() {
+        DecimalFormat magnitudeFormat = new DecimalFormat("0.0");
+        mMagFormatted = magnitudeFormat.format(mMag);
     }
 
     private void formatDate() {
@@ -49,6 +56,10 @@ public class Earthquake {
 
     public String getmTimeFormatted() {
         return mTimeFormatted;
+    }
+
+    public String getmMagFormatted() {
+        return mMagFormatted;
     }
 
     @Override
