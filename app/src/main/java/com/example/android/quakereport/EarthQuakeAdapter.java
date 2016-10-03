@@ -1,7 +1,9 @@
 package com.example.android.quakereport;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -37,8 +39,9 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
             earthquakeView = LayoutInflater.from(getContext()).inflate(
                     R.layout.earth_quake_item,parent,false);
         }
+
         // Get the {@link Earthquake} object located at this position in the list
-        Earthquake currentEarthquake = getItem(position);
+        final Earthquake currentEarthquake = getItem(position);
 
         // Find the TextView in the earth_quake_item.xml layout with the ID textView_mag
         TextView mag = (TextView) earthquakeView.findViewById(R.id.textView_mag);
@@ -62,6 +65,16 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
         // Set the color on the magnitude circle
         magnitudeCircle.setColor(magnitudeColor);
+
+        // Setup on clickListener
+
+        earthquakeView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Log.i(TAG, "onClick: " + currentEarthquake.getUrl());
+                openWebPage(currentEarthquake.getUrl());
+            }
+        });
 
         return earthquakeView;
     }
@@ -134,5 +147,14 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         }
         return ContextCompat.getColor(getContext(), magnitudeColorResourceId);
     }
+
+    public void openWebPage(String url) {
+        Uri webpage = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+        if (intent.resolveActivity(getContext().getPackageManager()) != null) {
+            getContext().startActivity(intent);
+        }
+    }
+
 
 }
