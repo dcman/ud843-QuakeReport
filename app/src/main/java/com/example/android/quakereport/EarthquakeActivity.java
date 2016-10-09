@@ -23,6 +23,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,7 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
     public static final String TAG = EarthquakeActivity.class.getName();
     final String url = "http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time&minmag=6&limit=10";
     private Context mContext = this;
+    private TextView emptyTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +41,8 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
         setContentView(R.layout.earthquake_activity);
         // Setup loader to load data in the background
         getLoaderManager().initLoader(0,null,this);
-
+        //Get the empty text view
+        emptyTextView = (TextView ) findViewById(R.id.empty);
     }
 
     @Override
@@ -69,6 +72,9 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
         if (earthquakeListView != null) {
             earthquakeListView.setAdapter(adapter);
         }
+        // Get the empty view and set text
+        emptyTextView.setText("No earthquakes found.");
+
     }
 
     @Override
